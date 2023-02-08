@@ -1,0 +1,38 @@
+<div class="row" style="margin-top: 30px">
+  <div class="col" *ngFor="let list of listofRecipes">
+    <div class="card">
+      <img
+        src="../../../assets/img/productimg.jpg"
+        class="card-img-top"
+        style="max-height: 320px"
+        alt="..."
+      />
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ list.name }}</h5>
+        <p class="card-text text-break">
+          {{ list.duration }} | {{ list.recipetype }}
+        </p>
+      </div>
+      <div class="card-body">
+        <div class="container2">
+          <div class="infimg">
+            <img
+              src="../../../assets/img/chef1.jpg"
+              alt=""
+              class="img-responsive"
+              style="width: 60px; height: 60px; border-radius: 50%"
+            />
+          </div>
+          <div class="inftext">
+            <span style="display: block; font-size: 20px">{{
+              list.chefname
+            }}</span>
+            <span style="display: block; font-size: 12px">{{
+              list.recipetype
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div *ngFor="let list of categoryitem; let i = index">
+        <span>{{ list.groupname }}</span>
+        <div *ngFor="let items of list.items; let i = index">
+          <input type="checkbox" [(ngModel)]="items.checked" />
+          <label>{{ items.name }}</label>
+        </div>
+      </div>
+      <!-- Selected: {{ categoryitem | json }} -->
+    </div>
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search for Recipe"
+            aria-label="Username"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let lit of listofrecipe">
+          <app-recipe-card></app-recipe-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
