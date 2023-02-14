@@ -17,6 +17,10 @@ import { NavBarComponent } from './common/nav-bar/nav-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipePageComponent } from './page/recipe-page/recipe-page.component';
 import { ChefPageComponent } from './page/chef-page/chef-page.component';
+import { AutocompleteFilterPipePipe } from './pipe/autocomplete-filter-pipe.pipe';
+import { RecipeListComponent } from './component/chef/recipe-list/recipe-list.component';
+import { StoreListComponent } from './component/chef/store-list/store-list.component';
+import { CartPageComponent } from './page/cart-page/cart-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,10 @@ import { ChefPageComponent } from './page/chef-page/chef-page.component';
     NavBarComponent,
     RecipePageComponent,
     ChefPageComponent,
+    AutocompleteFilterPipePipe,
+    RecipeListComponent,
+    StoreListComponent,
+    CartPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

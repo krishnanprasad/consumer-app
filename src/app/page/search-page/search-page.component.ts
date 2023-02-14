@@ -7,7 +7,7 @@ import { FormControl, FormBuilder, FormArray } from '@angular/forms';
   styleUrls: ['./search-page.component.css'],
 })
 export class SearchPageComponent implements OnInit {
-  name = 'Angular 6';
+  name = '';
   categoryitem = [
     {
       groupname: 'Type',
@@ -50,8 +50,27 @@ export class SearchPageComponent implements OnInit {
       ],
     },
   ];
+  searchtext = '';
   listofrecipe = ['r1', 'r1', 'r1'];
   constructor(private formBuilder: FormBuilder) {}
-
+  listofsearchaname = [
+    { name: 'Krishnan', id: 1 },
+    { name: 'Dhivya', id: 2 },
+    { name: 'Vihaan', id: 3 },
+    { name: 'Prasad', id: 4 },
+    { name: 'Girija', id: 5 },
+    { name: 'Krishnan Aarthi', id: 6 },
+  ];
   ngOnInit(): void {}
+  onkeypress(e: any) {
+    // this.filterByValue();
+  }
+  filterByValue() {
+    var value = 'name';
+    var centers = this.listofsearchaname.filter((o: any) =>
+      o[value].toLowerCase().includes(this.searchtext.toLowerCase())
+    );
+    console.log(centers);
+    console.log(this.listofsearchaname);
+  }
 }
