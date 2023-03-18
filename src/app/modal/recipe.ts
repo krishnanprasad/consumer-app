@@ -1,33 +1,44 @@
 export class Recipe {
   public recipeid: string;
-  public name: string;
-  public duration?: number;
-  public recipetype?: string;
+  public recipename: string;
+  public recipetime?: number;
+  public recipecuisine?: string;
   public img: string;
   public chefid: string;
   public chefname: string;
   public cheffollowercount: number;
   public veg?: boolean;
+  public recipesteps?: steps[];
 
   constructor(
     recipeid: string,
-    name: string,
-    duration: number,
-    recipetype: string,
+    recipename: string,
+    recipetime: number,
+    recipecuisine: string,
     img: string,
     chefid: string,
     cheffollowercount: number,
     veg: boolean,
-    chefname: string
+    chefname: string,
+    recipesteps: steps[]
   ) {
     this.recipeid = recipeid;
-    this.name = name;
-    this.duration = duration;
-    this.recipetype = recipetype;
+    this.recipename = recipename;
+    this.recipetime = recipetime;
+    this.recipecuisine = recipecuisine;
     this.img = img;
     this.chefid = chefid;
     this.cheffollowercount = cheffollowercount;
     this.veg = veg;
     this.chefname = chefname;
+    this.recipesteps = recipesteps;
+  }
+}
+
+export class steps {
+  public steps: string;
+
+  constructor(steps: string) {
+    this.steps = steps;
   }
 }

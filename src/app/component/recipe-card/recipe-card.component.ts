@@ -14,13 +14,13 @@ export class RecipeCardComponent implements OnInit {
     this.listofRecipes = [
       {
         chefid: '1',
-        name: 'test',
+        recipename: 'test',
         img: '',
         cheffollowercount: 100,
-        duration: 200,
+        recipetime: 200,
         veg: true,
         recipeid: '1',
-        recipetype: 'South Indian',
+        recipecuisine: 'South Indian',
         chefname: 'test',
       },
       // {

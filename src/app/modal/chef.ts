@@ -1,21 +1,35 @@
 export class Chef {
   public chefid?: string;
-  public firstname?: string;
-  public lastname?: string;
-  public img?: string;
-  public followercount?: number;
-
+  public chefname?: string;
+  public chefimgurl?: string;
+  public cheffavouritecuisine?: string;
+  public chefcaption?: string;
+  public cheflocation?: string;
+  public totalproducts?: number;
+  public totalfollowers?: number;
+  public totalrecipes?: number;
+  public chefaccountcreateddate?: Date;
   constructor(
     chefid: string,
-    firstname: string,
-    lastname: string,
-    img: string,
-    followercount: number
+    chefname: string,
+    chefimgurl: string,
+    cheffavouritecuisine: string,
+    chefcaption: string,
+    cheflocation: string,
+    totalproducts: number,
+    totalfollowers: number,
+    totalrecipes: number,
+    chefaccountcreateddate: Date
   ) {
     this.chefid = chefid;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.img = img;
-    this.followercount = followercount;
+    this.chefname = chefname;
+    this.chefimgurl = chefimgurl;
+    this.cheffavouritecuisine = cheffavouritecuisine;
+    this.totalproducts = totalproducts;
+    this.totalfollowers = totalfollowers;
+    this.totalrecipes = totalrecipes;
+    this.chefcaption = chefcaption;
+    this.cheflocation = cheflocation;
+    this.chefaccountcreateddate = chefaccountcreateddate;
   }
 }

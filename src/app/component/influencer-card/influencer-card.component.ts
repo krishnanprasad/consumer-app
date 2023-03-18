@@ -14,31 +14,27 @@ export class InfluencerCardComponent implements OnInit {
     this.listOfChefs = [
       {
         chefid: '1',
-        firstname: 'Firstname',
-        lastname: 'lastname',
-        img: 'img',
-        followercount: 12314,
+        chefname: 'Firstname',
+        chefimgurl: 'img',
+        totalfollowers: 12314,
       },
       {
         chefid: '3',
-        firstname: 'Firstname',
-        lastname: 'lastname',
-        img: 'img',
-        followercount: 1000,
+        chefname: 'Firstname',
+        chefimgurl: 'img',
+        totalfollowers: 1000,
       },
       {
         chefid: '2',
-        firstname: 'Firstname',
-        lastname: 'lastname',
-        img: 'img',
-        followercount: 123213,
+        chefname: 'Firstname',
+        chefimgurl: 'img',
+        totalfollowers: 123213,
       },
       {
         chefid: '1',
-        firstname: 'Firstname',
-        lastname: 'lastname',
-        img: 'img',
-        followercount: 123,
+        chefname: 'Firstname',
+        chefimgurl: 'img',
+        totalfollowers: 420,
       },
     ];
   }

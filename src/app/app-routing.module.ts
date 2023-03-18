@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminHomePageComponent } from './admin/admin-home-page/admin-home-page.component';
+import { CreateRecipeComponent } from './admin/create-recipe/create-recipe.component';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './common/home-page/home-page.component';
 import { CartPageComponent } from './page/cart-page/cart-page.component';
@@ -27,6 +29,14 @@ const routes: Routes = [
   {
     path: 'cart', //recipe card without params
     component: CartPageComponent,
+  },
+  {
+    path: 'createrecipe', //recipe card without params
+    component: CreateRecipeComponent,
+  },
+  {
+    path: 'admin', //Admin Home Page
+    component: AdminHomePageComponent,
   },
 ];
 

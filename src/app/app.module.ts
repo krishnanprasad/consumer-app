@@ -21,6 +21,10 @@ import { AutocompleteFilterPipePipe } from './pipe/autocomplete-filter-pipe.pipe
 import { RecipeListComponent } from './component/chef/recipe-list/recipe-list.component';
 import { StoreListComponent } from './component/chef/store-list/store-list.component';
 import { CartPageComponent } from './page/cart-page/cart-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateRecipeComponent } from './admin/create-recipe/create-recipe.component';
+import { AdminHomePageComponent } from './admin/admin-home-page/admin-home-page.component';
+import { AdminAddChefComponent } from './admin/admin-add-chef/admin-add-chef.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +44,11 @@ import { CartPageComponent } from './page/cart-page/cart-page.component';
     RecipeListComponent,
     StoreListComponent,
     CartPageComponent,
+    CreateRecipeComponent,
+    AdminHomePageComponent,
+    AdminAddChefComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule,HttpClientModule ],
   providers: [],
   bootstrap: [AppComponent],
 })
