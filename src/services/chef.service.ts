@@ -22,4 +22,10 @@ export class ChefService {
     queryParams = queryParams.append('chefid', chefid);
     return this.http.get<Chef>(url, { params: queryParams });
   }
+  public getChefList(chefid: any): Observable<Chef[]> {
+    const url = environment.apiUrl + 'Chef/GetChefList';
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('chefid', chefid);
+    return this.http.get<Chef[]>(url, { params: queryParams });
+  }
 }

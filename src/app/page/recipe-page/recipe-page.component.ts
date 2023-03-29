@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/modal/recipe';
 import { RecipeServiceService } from 'src/services/recipe-service.service';
 
@@ -16,10 +17,22 @@ export class RecipePageComponent implements OnInit {
     chefname: '',
     cheffollowercount: 0,
   };
-  constructor(private _RecipeService: RecipeServiceService) {}
-
+  recipeid: any;
+  constructor(
+    private _RecipeService: RecipeServiceService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+  recipeList: any;
   ngOnInit() {
+    this.recipeid = this.route.snapshot.paramMap.get('recipeid');
+    if (this.recipeid != null && this.recipeid != '') {
+      this.getSimilarRecipeList();
+    } else {
+      this.recipeid = '';
+    }
     this.getRecipe();
+    this.getSimilarRecipeList();
   }
   listofsteps = [
     {
@@ -110,5 +123,13 @@ export class RecipePageComponent implements OnInit {
       //   return user;
       // });
     });
+  }
+  getSimilarRecipeList() {
+    this._RecipeService.getRecipeList('').subscribe((response: Recipe[]) => {
+      this.recipeList = response;
+    });
+  }
+  gotochefpage(chefid: string) {
+    this.router.navigate(['chef'], { queryParams: { chefid: chefid } });
   }
 }

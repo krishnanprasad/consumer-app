@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { RecipeServiceService } from 'src/services/recipe-service.service';
+import { ToastService } from 'src/services/ui/toast.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -10,7 +11,8 @@ import { RecipeServiceService } from 'src/services/recipe-service.service';
 export class CreateRecipeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
-    private _RecipeService: RecipeServiceService
+    private _RecipeService: RecipeServiceService,
+    private toast: ToastService
   ) {}
   addRecipe: any;
   ngOnInit() {
@@ -58,6 +60,13 @@ export class CreateRecipeComponent implements OnInit {
     }
     var recipe = this.addRecipe.value;
     this._RecipeService.AddRecipe(recipe).subscribe((response: any) => {
+      if (response == true) {
+        this.addRecipe.reset();
+        this.toast.showSuccessToast(
+          'Addedd',
+          'Recipe has been added successfully'
+        );
+      }
       //this.recipe = response;
       // this.recipe.per_page = response?.per_page;
       // //this.userInfo.support = response.support;

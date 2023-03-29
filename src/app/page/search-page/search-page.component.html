@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3" style="background-color: #fbfbfb;padding: 20px 5px 5px 10px;">
-      <div style="margin-bottom: 30px;">
+    <div
+      class="col-lg-3"
+      style="background-color: #fbfbfb; padding: 20px 5px 5px 10px"
+    >
+      <div style="margin-bottom: 30px">
         <h5>Filters</h5>
       </div>
       <div
@@ -18,7 +21,42 @@
           <label style="margin-left: 10px">{{ items.name }}</label>
         </div>
       </div>
-      <!-- Selected: {{ categoryitem | json }} -->
+      <!-- Selected: {{ categoryitem | json }}  -->
+
+      Length: {{ lengthofingredientSearchList }}
+      <div class="row">
+        <div class="wrapper">
+          <div class="search-input">
+            <input
+              type="text"
+              placeholder="Search Ingredient"
+              (onChange)="oningredientkeypress($event)"
+              [(ngModel)]="TBsearchingredient"
+            />
+            <div
+              class="autocom-box"
+              [style.display]="
+                lengthofingredientSearchList > 0 ? 'block' : 'none'
+              "
+            >
+              <!-- <li
+                *ngFor="
+                  let item of ingredientSearchList
+                    | autocompleteFilterPipe
+                      : 'ingredientName'
+                      : searchingredient
+                "
+              > -->
+              <li *ngFor="let item of ingredientSearchList">
+                {{ item.ingredientName }}
+              </li>
+            </div>
+            <div class="icon">
+              <i class="bi bi-search"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-lg-9">
       <div class="row">
@@ -26,18 +64,21 @@
           <div class="search-input">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search Recipe"
               (keyup)="onkeypress($event)"
               [(ngModel)]="searchtext"
             />
-            <div class="autocom-box">
+            <div
+              class="autocom-box"
+              [style.display]="lengthofrecipeSearchList > 0 ? 'block' : 'none'"
+            >
               <li
                 *ngFor="
-                  let item of listofsearchaname
-                    | autocompleteFilterPipe : 'name' : searchtext
+                  let item of recipeSearchList
+                    | autocompleteFilterPipe : 'recipename' : searchtext
                 "
               >
-                {{ item.name }}
+                {{ item.recipename }}
               </li>
             </div>
             <div class="icon">
@@ -47,8 +88,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4" *ngFor="let lit of listofrecipe">
-          <app-recipe-card></app-recipe-card>
+        <div class="col-md-4" *ngFor="let list of recipeList">
+          <app-recipe-card [recipe]="list"></app-recipe-card>
         </div>
       </div>
     </div>

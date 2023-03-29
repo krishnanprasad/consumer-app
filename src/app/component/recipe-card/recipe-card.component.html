@@ -1,35 +1,49 @@
 <div class="row" style="margin-top: 30px">
-  <div class="col" *ngFor="let list of listofRecipes">
-    <div class="card">
+  <div class="col">
+    <div class="card hover-shadow">
       <img
         src="assets/img/productimg.jpg"
         class="card-img-top"
         style="max-height: 320px"
         alt="..."
       />
-      <div class="card-body text-center">
-        <h5 class="card-title">{{ list.recipename }}</h5>
-        <p class="card-text text-break">
-          {{ list.recipetime }} | {{ list.recipecuisine }}
-        </p>
+      <div
+        class="card-body text-center"
+        style="padding-left: 0px; padding-right: 0px"
+      >
+        <span
+          style="font-size: 18px; display: block; margin-bottom: 0px"
+          class="card-title"
+          (click)="gotorecipepage(recipe.recipeid)"
+        >
+          {{ recipe.recipename }}
+        </span>
+        <span
+          class="card-text text-break"
+          style="font-size: 14px; color: rgb(80, 80, 80); margin-top: -10px"
+        >
+          {{ recipe.recipetime }} mins | {{ recipe.recipecuisine }}
+        </span>
       </div>
-      <div class="card-body">
+      <div class="card-body" style="padding-top: 0px">
         <div class="container2">
           <div class="infimg">
             <img
               src="assets/img/default.jpg"
               alt=""
               class="img-responsive"
-              style="width: 50px; height: 50px; border-radius: 50%"
+              style="width: 40px; height: 40px; border-radius: 50%"
             />
           </div>
           <div class="inftext">
-            <span style="display: block; font-size: 20px">{{
-              list.chefname
-            }}</span>
-            <span style="display: block; font-size: 12px">{{
-              list.recipecuisine
-            }}</span>
+            <span
+              style="display: block; font-size: 14px"
+              (click)="gotochefpage(recipe.chefid)"
+              >{{ recipe.chefname }}</span
+            >
+            <span style="display: block; font-size: 12px"
+              >{{ recipe.totalfollowers }} followers</span
+            >
           </div>
         </div>
       </div>

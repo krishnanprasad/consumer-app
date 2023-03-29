@@ -4,6 +4,11 @@
   >
   <p class="commonfont">more than 1000+ Chef's</p>
 </div>
+
 <div style="margin-top: 60px">
-  <app-influencer-card></app-influencer-card>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let list of chiefList">
+      <app-influencer-card [chef]="list"></app-influencer-card>
+    </div>
+  </div>
 </div>

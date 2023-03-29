@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col" *ngFor="let list of listOfChefs">
+  <div class="col">
     <div class="card">
       <div
         style="
@@ -19,11 +19,14 @@
       </div>
       <div class="card-body text-center" style="padding-bottom: 5px !important">
         <span class="card-text" style="display: block">{{
-          list.chefname
+          chef.chefname
         }}</span>
-        <span class="card-text" style="display: block; margin-bottom: 10px">{{
-          list.totalfollowers
-        }}</span>
+        <span
+          class="card-text"
+          style="display: block; margin-bottom: 10px; font-size: 12px"
+          >{{ chef.totalfollowers }} | {{ chef.totalrecipes }}</span
+        >
+
         <p style="margin-top: 5px">
           <a href="#" class="btn btn-follow">Follow</a>
         </p>

@@ -14,7 +14,9 @@
       <button class="nav-link" type="button" (click)="changesection('message')">
         Messages
       </button>
-      <button class="nav-link" type="button">Settings</button>
+      <button class="nav-link" type="button" (click)="changesection('setting')">
+        Settings
+      </button>
     </div>
     <div class="vr"></div>
     <div class="tab-content" style="padding-left: 30px">
@@ -27,7 +29,18 @@
       <div *ngIf="currentsection == 'message'">
         Message Message Message Message Message
       </div>
-      <div *ngIf="currentsection == 'setting'">Settings</div>
+      <div *ngIf="currentsection == 'setting'">
+        <div class="row" style="margin-top: 20px">
+          <button
+            type="button"
+            (click)="showToast(ToasterEventTypes.Warning)"
+            class="btn btn-success"
+          >
+            Close
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+  <!-- <app-toaster></app-toaster> -->
 </div>

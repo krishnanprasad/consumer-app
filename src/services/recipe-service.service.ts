@@ -26,4 +26,22 @@ export class RecipeServiceService {
     const url = environment.apiUrl + 'Recipe/AddRecipe';
     return this.http.post<any>(url, recipe, { headers: header });
   }
+  public getRecipeList(chefid: string): Observable<any> {
+    if ((chefid = '')) {
+      chefid = '';
+    }
+    const url = environment.apiUrl + 'Recipe/GetRecipeList';
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('inf_id', chefid);
+    return this.http.get<Recipe[]>(url, { params: queryParams });
+  }
+  public getRecipeSearchList(searchrecipe: string): Observable<any> {
+    if ((searchrecipe = '')) {
+      searchrecipe = '';
+    }
+    const url = environment.apiUrl + 'Recipe/GetSearchRecipeList';
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('searchRecipe', searchrecipe);
+    return this.http.get<Recipe[]>(url, { params: queryParams });
+  }
 }

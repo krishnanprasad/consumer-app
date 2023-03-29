@@ -4,12 +4,15 @@
   >
 </div>
 <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3" style="margin-top: 60px">
-  <div class="col text-center" *ngFor="let list of listOfCategory">
+  <div class="col text-center" *ngFor="let list of ingredientList">
     <img
-      src="assets/img/category_img_homepage.png"
-      style="width: 160px; height: 80px; border-radius: 10px"
+      src="assets/img/ingredient/{{ list.ingredientImage }}"
+      style="width: 80px; height: 80px; border-radius: 10px"
       class="card-img-top"
       alt="..."
     />
+    <span style="display: block; margin-top: 10px">{{
+      list.ingredientName
+    }}</span>
   </div>
 </div>

@@ -25,6 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateRecipeComponent } from './admin/create-recipe/create-recipe.component';
 import { AdminHomePageComponent } from './admin/admin-home-page/admin-home-page.component';
 import { AdminAddChefComponent } from './admin/admin-add-chef/admin-add-chef.component';
+import { ToastComponent } from './common/ui/toast/toast.component';
+import { ToasterComponent } from './common/ui/toaster/toaster.component';
+import { FooterSectionComponent } from './common/footer-section/footer-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +50,9 @@ import { AdminAddChefComponent } from './admin/admin-add-chef/admin-add-chef.com
     CreateRecipeComponent,
     AdminHomePageComponent,
     AdminAddChefComponent,
+    ToastComponent,
+    ToasterComponent,
+    FooterSectionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule,HttpClientModule ],
   providers: [],

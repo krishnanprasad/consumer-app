@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Chef } from 'src/app/modal/chef';
 
 @Component({
@@ -9,7 +9,7 @@ import { Chef } from 'src/app/modal/chef';
 export class InfluencerCardComponent implements OnInit {
   listOfChefs: Chef[] = [];
   constructor() {}
-
+  @Input() chef: any;
   ngOnInit(): void {
     this.listOfChefs = [
       {

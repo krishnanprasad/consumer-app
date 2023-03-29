@@ -19,11 +19,11 @@ const routes: Routes = [
     component: SearchPageComponent,
   },
   {
-    path: 'recipe', //recipe card without params
+    path: 'recipe/:recipeid', //recipe card without params
     component: RecipePageComponent,
   },
   {
-    path: 'chef', //recipe card without params
+    path: 'chef/:inf_id', //recipe card without params
     component: ChefPageComponent,
   },
   {
