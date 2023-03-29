@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Recipe } from 'src/app/modal/recipe';
 
 @Component({
@@ -8,43 +9,14 @@ import { Recipe } from 'src/app/modal/recipe';
 })
 export class RecipeCardComponent implements OnInit {
   listofRecipes: Recipe[] = [];
-  constructor() {}
+  constructor(private router: Router) {}
+  @Input() recipe: any;
 
-  ngOnInit(): void {
-    this.listofRecipes = [
-      {
-        chefid: '1',
-        recipename: 'test',
-        img: '',
-        cheffollowercount: 100,
-        recipetime: 200,
-        veg: true,
-        recipeid: '1',
-        recipecuisine: 'South Indian',
-        chefname: 'test',
-      },
-      // {
-      //   chefid: '1',
-      //   name: 'test 2',
-      //   img: '',
-      //   cheffollowercount: 500,
-      //   duration: 200,
-      //   veg: true,
-      //   recipeid: '1',
-      //   recipetype: 'South Indian',
-      //   chefname: 'test',
-      // },
-      // {
-      //   chefid: '1',
-      //   name: 'test 4',
-      //   img: '',
-      //   cheffollowercount: 1000,
-      //   duration: 200,
-      //   veg: true,
-      //   recipeid: '1',
-      //   recipetype: 'South Indian',
-      //   chefname: 'test',
-      // },
-    ];
+  ngOnInit() {}
+  gotochefpage(chefid: string) {
+    this.router.navigate(['chef/' + chefid]);
+  }
+  gotorecipepage(recipeid: string) {
+    this.router.navigate(['recipe/' + recipeid]);
   }
 }
