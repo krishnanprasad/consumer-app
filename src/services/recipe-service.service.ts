@@ -35,13 +35,14 @@ export class RecipeServiceService {
     queryParams = queryParams.append('inf_id', chefid);
     return this.http.get<Recipe[]>(url, { params: queryParams });
   }
-  public getRecipeSearchList(searchrecipe: string): Observable<any> {
-    if ((searchrecipe = '')) {
-      searchrecipe = '';
-    }
+  public getRecipeSearchList(searchrecipe: any): Observable<any> {
+    var header = new HttpHeaders().set('Content-type', 'application/json');
     const url = environment.apiUrl + 'Recipe/GetSearchRecipeList';
     let queryParams = new HttpParams();
+
     queryParams = queryParams.append('searchRecipe', searchrecipe);
-    return this.http.get<Recipe[]>(url, { params: queryParams });
+    return this.http.post<Recipe[]>(url, searchrecipe, {
+      headers: header,
+    });
   }
 }

@@ -28,6 +28,7 @@ import { AdminAddChefComponent } from './admin/admin-add-chef/admin-add-chef.com
 import { ToastComponent } from './common/ui/toast/toast.component';
 import { ToasterComponent } from './common/ui/toaster/toaster.component';
 import { FooterSectionComponent } from './common/footer-section/footer-section.component';
+import { SearchChefPageComponent } from './page/search-chef-page/search-chef-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { FooterSectionComponent } from './common/footer-section/footer-section.c
     ToastComponent,
     ToasterComponent,
     FooterSectionComponent,
+    SearchChefPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule,HttpClientModule ],
   providers: [],

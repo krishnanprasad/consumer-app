@@ -13,9 +13,9 @@ export class IngredientService {
     const url = environment.apiUrl + 'Ingredient/GetRecommendedIngredientList';
     return this.http.get<Ingredient[]>(url);
   }
-  public getIngredientSearch(searchterm: string): Observable<any> {
+  public getIngredientSearch(combinedRecipeFilter: any): Observable<any> {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append('searchterm', searchterm);
+    queryParams = queryParams.append('searchterm', combinedRecipeFilter);
     const url = environment.apiUrl + 'Ingredient/GetIngredientListSearch';
     return this.http.get<Ingredient[]>(url, { params: queryParams });
   }

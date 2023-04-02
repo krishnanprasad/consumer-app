@@ -12,10 +12,11 @@ export class RecipePageComponent implements OnInit {
   public recipe: Recipe = {
     recipeid: '',
     recipename: '',
-    img: '',
+    recipeimage: '',
     chefid: '',
     chefname: '',
     cheffollowercount: 0,
+    type: 0,
   };
   recipeid: any;
   constructor(

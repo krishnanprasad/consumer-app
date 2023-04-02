@@ -2,9 +2,9 @@
   <div class="col">
     <div class="card hover-shadow">
       <img
-        src="assets/img/productimg.jpg"
+        src="assets/img/recipe/{{ recipe.recipeimage }}"
         class="card-img-top"
-        style="max-height: 320px"
+        style="max-height: 181px; min-height: 180px"
         alt="..."
       />
       <div
@@ -17,6 +17,12 @@
           (click)="gotorecipepage(recipe.recipeid)"
         >
           {{ recipe.recipename }}
+          <img
+            src="assets/img/icons/{{ recipe.recipetypeimgsrc }}"
+            class="card-img-top"
+            style="max-height: 18px; max-width: 18px"
+            alt="..."
+          />
         </span>
         <span
           class="card-text text-break"
@@ -27,7 +33,7 @@
       </div>
       <div class="card-body" style="padding-top: 0px">
         <div class="container2">
-          <div class="infimg">
+          <div class="infimg" (click)="gotochefpage(recipe.chefid)">
             <img
               src="assets/img/default.jpg"
               alt=""
@@ -36,11 +42,9 @@
             />
           </div>
           <div class="inftext">
-            <span
-              style="display: block; font-size: 14px"
-              (click)="gotochefpage(recipe.chefid)"
-              >{{ recipe.chefname }}</span
-            >
+            <span style="display: block; font-size: 14px">{{
+              recipe.chefname
+            }}</span>
             <span style="display: block; font-size: 12px"
               >{{ recipe.totalfollowers }} followers</span
             >

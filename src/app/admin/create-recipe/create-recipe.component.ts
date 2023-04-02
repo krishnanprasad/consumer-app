@@ -9,6 +9,7 @@ import { ToastService } from 'src/services/ui/toast.service';
   styleUrls: ['./create-recipe.component.css'],
 })
 export class CreateRecipeComponent implements OnInit {
+  AddButtonActive: boolean = false;
   constructor(
     private fb: FormBuilder,
     private _RecipeService: RecipeServiceService,
@@ -23,6 +24,7 @@ export class CreateRecipeComponent implements OnInit {
       steps: this.fb.array([]),
       duration: [''],
       cuisinetype: [''],
+      type: 0,
       videourl: ['', Validators.required],
     });
   }
@@ -38,8 +40,8 @@ export class CreateRecipeComponent implements OnInit {
 
   createIngredient(): FormGroup {
     return this.fb.group({
-      name: ['', Validators.required],
-      quantity: ['', Validators.required],
+      ingredientName: ['', Validators.required],
+      ingredientQuantity: ['', Validators.required],
     });
   }
   addStep() {
@@ -82,5 +84,8 @@ export class CreateRecipeComponent implements OnInit {
       //   return user;
       // });
     });
+  }
+  ConfirmRecipe() {
+    this.AddButtonActive = true;
   }
 }

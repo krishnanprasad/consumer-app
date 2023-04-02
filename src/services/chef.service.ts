@@ -28,4 +28,11 @@ export class ChefService {
     queryParams = queryParams.append('chefid', chefid);
     return this.http.get<Chef[]>(url, { params: queryParams });
   }
+  public getSearchChefList(searchterm: any): Observable<Chef[]> {
+    const url = environment.apiUrl + 'Chef/GetChefSearchList';
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('searchterm', searchterm);
+    return this.http.get<Chef[]>(url, { params: queryParams });
+  }
+  
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chef } from 'src/app/modal/chef';
 
 @Component({
@@ -8,7 +9,7 @@ import { Chef } from 'src/app/modal/chef';
 })
 export class InfluencerCardComponent implements OnInit {
   listOfChefs: Chef[] = [];
-  constructor() {}
+  constructor(private router: Router) {}
   @Input() chef: any;
   ngOnInit(): void {
     this.listOfChefs = [
@@ -37,5 +38,8 @@ export class InfluencerCardComponent implements OnInit {
         totalfollowers: 420,
       },
     ];
+  }
+  gotochefpage(chefid: string) {
+    this.router.navigate(['chef/' + chefid]);
   }
 }

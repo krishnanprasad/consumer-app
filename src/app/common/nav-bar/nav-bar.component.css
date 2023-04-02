@@ -1,0 +1,32 @@
+.icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+}
+
+.colored {
+  background-color: grey; /* defines the background color of the image */
+  mask: url(../../../assets/img/icons/i-search.svg) no-repeat center / contain;
+  -webkit-mask: url(../../../assets/img/icons/i-search.svg) no-repeat center /
+    contain;
+}
+.nav-span {
+  color: grey;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+.nav-item:nth-child(n + 2):hover {
+  background-color: coral;
+  border-radius: 20px;
+}
+
+.nav-item:hover .nav-span {
+  color: white;
+}
+.nav-item:hover .colored {
+  background-color: white; /* defines the background color of the image */
+}
+.nav-item {
+  margin-left: 10px;
+}

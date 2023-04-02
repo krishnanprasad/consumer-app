@@ -7,6 +7,7 @@ import { HomePageComponent } from './common/home-page/home-page.component';
 import { CartPageComponent } from './page/cart-page/cart-page.component';
 import { ChefPageComponent } from './page/chef-page/chef-page.component';
 import { RecipePageComponent } from './page/recipe-page/recipe-page.component';
+import { SearchChefPageComponent } from './page/search-chef-page/search-chef-page.component';
 import { SearchPageComponent } from './page/search-page/search-page.component';
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'admin', //Admin Home Page
     component: AdminHomePageComponent,
+  },
+  {
+    path: 'searchchef', //recipe card without params
+    component: SearchChefPageComponent,
   },
 ];
 

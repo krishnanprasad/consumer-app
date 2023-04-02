@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormArray } from '@angular/forms';
+import { category } from 'src/app/modal/category';
 import { Ingredient } from 'src/app/modal/ingredient';
 import { Recipe } from 'src/app/modal/recipe';
 import { IngredientService } from 'src/services/ingredient.service';
@@ -12,24 +13,19 @@ import { RecipeServiceService } from 'src/services/recipe-service.service';
 })
 export class SearchPageComponent implements OnInit {
   name = '';
-  categoryitem = [
+  categoryitem: category[] = [
     {
       groupname: 'Type',
       items: [
         {
-          id: 1,
+          checked: true,
           name: 'Veg',
-          checked: true,
+          id: '1',
         },
         {
-          id: 2,
-          name: 'Non Veg',
           checked: true,
-        },
-        {
-          id: 3,
-          name: 'Egg',
-          checked: true,
+          name: 'Non-Veg',
+          id: '2',
         },
       ],
     },
@@ -37,23 +33,24 @@ export class SearchPageComponent implements OnInit {
       groupname: 'Cuisine',
       items: [
         {
-          id: 1,
+          id: '1',
           name: 'Indian',
-          checked: true,
+          checked: false,
         },
         {
-          id: 2,
+          id: '2',
           name: 'Japanese',
-          checked: true,
+          checked: false,
         },
         {
-          id: 3,
+          id: '3',
           name: 'American',
           checked: true,
         },
       ],
     },
   ];
+  combinedRecipeFilter: any;
   searchtext = '';
   listofrecipe = ['r1', 'r1', 'r1'];
   recipeList: any;
@@ -62,50 +59,69 @@ export class SearchPageComponent implements OnInit {
   ingredientSearchList: any;
   lengthofingredientSearchList: number = 0;
   lengthofrecipeSearchList: number = 0;
+  ingredientFilterArray: string[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private _RecipeService: RecipeServiceService,
     private _IngredientService: IngredientService
   ) {}
-  listofsearchaname = [
-    { name: 'Krishnan', id: 1 },
-    { name: 'Dhivya', id: 2 },
-    { name: 'Vihaan', id: 3 },
-    { name: 'Prasad', id: 4 },
-    { name: 'Girija', id: 5 },
-    { name: 'Krishnan Aarthi', id: 6 },
-  ];
+
   ngOnInit() {
     this.getSimilarRecipeList();
   }
   onkeypress(e: any) {
-    this.filterByValue();
+    this.getRecipeList();
   }
-  filterByValue() {
-    var value = 'name';
-    if (this.searchtext.length > 0) {
-      this._RecipeService
-        .getRecipeSearchList(this.searchtext.toLowerCase())
-        .subscribe((response: Recipe[]) => {
-          this.lengthofrecipeSearchList = response.length;
-          this.recipeSearchList = response;
-        });
-    }
+  getRecipeList() {
+    this.combinedRecipeFilter = {
+      category: this.categoryitem,
+      text: this.searchtext,
+      ingredients: this.ingredientFilterArray,
+    };
+
+    this._RecipeService
+      .getRecipeSearchList(this.combinedRecipeFilter)
+      .subscribe((response: Recipe[]) => {
+        this.lengthofrecipeSearchList = response.length;
+        this.recipeList = response;
+      });
   }
   getSimilarRecipeList() {
     this._RecipeService.getRecipeList('').subscribe((response: Recipe[]) => {
       this.recipeList = response;
     });
   }
+  filtercategory() {
+    this.categoryitem
+      .filter((element) => element.items.some((item) => item.checked === true))
+      .map((element) => {
+        let n = Object.assign({}, element, {
+          items: element.items.filter((item) => item.checked === true),
+        });
+        return n;
+      });
+  }
   oningredientkeypress(e: any) {
     this.getIngredientSearchList();
   }
   getIngredientSearchList() {
     this._IngredientService
-      .getIngredientSearch(this.TBsearchingredient.toLowerCase())
+      .getIngredientSearch(this.TBsearchingredient)
       .subscribe((response: Ingredient[]) => {
         this.lengthofingredientSearchList = response.length;
         this.ingredientSearchList = response;
       });
+  }
+  addingredientintosearch(value: string) {
+    this.ingredientFilterArray.push(value);
+    this.getRecipeList();
+  }
+  removingredientintosearch(value: string) {
+    this.ingredientFilterArray.forEach((item, index) => {
+      if (item === value) {
+        this.ingredientFilterArray.splice(index, 1);
+      }
+    });
+    this.getRecipeList();
   }
 }
