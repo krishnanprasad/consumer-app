@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:24085/api/',
+  // apiUrl: 'http://localhost:24085/api/',
+   apiUrl: 'https://cookhatapi.azurewebsites.net/api/',
 };
 
 /*
