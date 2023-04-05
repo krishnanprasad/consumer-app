@@ -1,7 +1,7 @@
 <div class="container">
   <div class="d-flex justify-content-center" style="margin-top: 120px">
     <img
-      src="assets/img/default.jpg"
+      src="assets/img//chef/{{ chefDetail?.chefimgurl }}"
       style="border-radius: 50%; height: 180px; width: 180px"
       class="flex-shrink-0 me-3"
       alt="..."
@@ -62,7 +62,11 @@
     </div>
   </div>
   <div *ngIf="activesection == 'recipe'">
-    <app-chef-recipe-list></app-chef-recipe-list>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let list of recipeList">
+        <app-recipe-card [recipe]="list"></app-recipe-card>
+      </div>
+    </div>
   </div>
   <div *ngIf="activesection == 'store'">
     <!-- <app-chef-store-list></app-chef-store-list> -->

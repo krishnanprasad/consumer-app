@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/modal/recipe';
 import { RecipeServiceService } from 'src/services/recipe-service.service';
+import {
+  DomSanitizer,
+  SafeResourceUrl,
+  SafeUrl,
+} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-recipe-page',
@@ -17,12 +22,16 @@ export class RecipePageComponent implements OnInit {
     chefname: '',
     cheffollowercount: 0,
     type: 0,
+    recipevideosrc: '',
+    chefimgurl: 'ks',
   };
   recipeid: any;
+  sanitizeYoutubeURL: any;
   constructor(
     private _RecipeService: RecipeServiceService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) {}
   recipeList: any;
   ngOnInit() {
@@ -35,81 +44,17 @@ export class RecipePageComponent implements OnInit {
     this.getRecipe();
     this.getSimilarRecipeList();
   }
-  listofsteps = [
-    {
-      detail:
-        'Separate the egg yolks and whites. Whisk the yolks with black pepper and set aside.',
-    },
-    {
-      detail:
-        'Separate the egg yolks and whites. Whisk the yolks with black pepper and set aside.',
-    },
-    {
-      detail:
-        'Separate the egg yolks and whites. Whisk the yolks with black pepper and set aside.',
-    },
-    {
-      detail:
-        'Separate the egg yolks and whites. Whisk the yolks with black pepper and set aside.',
-    },
-    {
-      detail:
-        'Separate the egg yolks and whites. Whisk the yolks with black pepper and set aside.',
-    },
-  ];
-  ingredientlist = [
-    {
-      iname: 'Eggs',
-      iquantity: '2',
-      iimg: 'egg.avif',
-    },
-    {
-      iname: 'Sugar',
-      iquantity: '3/4 cup',
-      iimg: 'sugar.avif',
-    },
-    {
-      iname: 'Oil',
-      iquantity: '1/4 Cup',
-      iimg: 'oil.avif',
-    },
-    {
-      iname: 'Vanilla extract (or few drops of Strawberry essence)',
-      iquantity: '1.5 tsp',
-      iimg: 'egg.avif',
-    },
-    {
-      iname: 'Maida',
-      iquantity: '1 cup',
-      iimg: 'maida.avif',
-    },
-    {
-      iname: 'baking powder',
-      iquantity: '1 tsp',
-      iimg: 'bakingpowder.avif',
-    },
-    {
-      iname: 'Salt',
-      iquantity: '1/4 tsp',
-      iimg: 'salt.avif',
-    },
-    {
-      iname: 'Milk',
-      iquantity: '2 tbsp',
-      iimg: 'milk.avif',
-    },
-  ];
-  listofrecipe = ['r1', 'r1', 'r1', 'r1'];
-  cookingtime = {
-    cookingtime: '45 Mins',
-    cookingtype: 'Desert,Cake',
-  };
+
   getRecipe() {
-    var recipeid = 'rec4';
+    var recipeid = this.recipeid;
     this._RecipeService.getRecipe(recipeid).subscribe((response: Recipe) => {
       //this.userInfo = response;
+
       //return;
+      debugger;
       this.recipe = response;
+      this.sanitizeYoutubeURL =
+        'https://www.youtube.com/embed/' + this.recipe.recipevideosrc;
       // this.recipe.per_page = response?.per_page;
       // //this.userInfo.support = response.support;
       // this.recipe.total = response?.total;
@@ -132,5 +77,10 @@ export class RecipePageComponent implements OnInit {
   }
   gotochefpage(chefid: string) {
     this.router.navigate(['chef'], { queryParams: { chefid: chefid } });
+  }
+  getSanitizedURL() {
+    return this.sanitizer.bypassSecurityTrustUrl(
+      'https://www.youtube.com/embed/D_fYk8mBaF4'
+    );
   }
 }

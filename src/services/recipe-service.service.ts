@@ -27,12 +27,12 @@ export class RecipeServiceService {
     return this.http.post<any>(url, recipe, { headers: header });
   }
   public getRecipeList(chefid: string): Observable<any> {
-    if ((chefid = '')) {
+    if ((chefid == '')) {
       chefid = '';
     }
     const url = environment.apiUrl + 'Recipe/GetRecipeList';
     let queryParams = new HttpParams();
-    queryParams = queryParams.append('inf_id', chefid);
+    queryParams = queryParams.append('chef_id', chefid);
     return this.http.get<Recipe[]>(url, { params: queryParams });
   }
   public getRecipeSearchList(searchrecipe: any): Observable<any> {

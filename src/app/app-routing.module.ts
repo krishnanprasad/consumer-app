@@ -24,7 +24,7 @@ const routes: Routes = [
     component: RecipePageComponent,
   },
   {
-    path: 'chef/:inf_id', //recipe card without params
+    path: 'chef/:chefid', //recipe card without params
     component: ChefPageComponent,
   },
   {

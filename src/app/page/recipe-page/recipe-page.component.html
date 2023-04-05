@@ -5,15 +5,18 @@
         <div class="container2">
           <div class="infimg">
             <img
-              src="assets/img/madras_samayal_logo.jpg"
+              src="assets/img/chef/{{ recipe?.chefimgurl }}"
               alt=""
               class="img-responsive"
               style="width: 60px; height: 60px; border-radius: 50%"
             />
           </div>
           <div class="inftext">
-            <span style="display: block; font-size: 20px" (click)="gotochefpage(recipe.chefid)">
-              {{recipe.chefname}}
+            <span
+              style="display: block; font-size: 20px"
+              (click)="gotochefpage(recipe.chefid)"
+            >
+              {{ recipe.chefname }}
               <input type="button" class="btn btn-warning" value="Follow" />
             </span>
             <span style="display: block; font-size: 12px">
@@ -28,7 +31,7 @@
           <iframe
             width="560"
             height="475"
-            src="https://www.youtube.com/embed/mHVZt0muERY"
+            [src]="sanitizeYoutubeURL | safe : 'resourceUrl'"
             frameborder="0"
             allowfullscreen
           ></iframe>
@@ -70,11 +73,11 @@
             <h5>Ingredient List</h5>
           </div>
           <div class="row row-cols-2">
-            <div class="col" *ngFor="let list of ingredientlist">
+            <div class="col" *ngFor="let list of recipe?.recipeingredients">
               <div class="container2" style="margin-top: 20px">
                 <div class="infimg">
                   <img
-                    src="assets/img/ingredient/{{ list.iimg }}"
+                    src="assets/img/ingredient/{{ list?.ingredientImage }}"
                     alt=""
                     class="img-responsive"
                     style="width: 50px; height: 50px; border-radius: 50%"
@@ -82,10 +85,10 @@
                 </div>
                 <div class="inftext">
                   <span style="display: block; font-size: 16px">{{
-                    list.iname
+                    list?.ingredientName
                   }}</span>
                   <span style="display: block; font-size: 12px">{{
-                    list.iquantity
+                    list?.ingredientQuantity
                   }}</span>
                 </div>
               </div>

@@ -10,23 +10,23 @@ import { RecipeServiceService } from 'src/services/recipe-service.service';
 })
 export class RecipeListComponent implements OnInit {
   recipeList: any;
-  inf_id: any;
+  chef_id: any;
   constructor(
     private _RecipeService: RecipeServiceService,
     private route: ActivatedRoute
   ) {}
   listofrecipe = ['r1', 'r1', 'r1', 'r2'];
   ngOnInit() {
-    this.inf_id = this.route.snapshot.paramMap.get('inf_id');
-    if (this.inf_id != null && this.inf_id != '') {
+    this.chef_id = this.route.snapshot.paramMap.get('chef_id');
+    if (this.chef_id != null && this.chef_id != '') {
       this.getSimilarRecipeList();
     } else {
-      this.inf_id = '';
+      this.chef_id = '';
     }
   }
   getSimilarRecipeList() {
     this._RecipeService
-      .getRecipeList(this.inf_id)
+      .getRecipeList(this.chef_id)
       .subscribe((response: Recipe[]) => {
         this.recipeList = response;
       });
