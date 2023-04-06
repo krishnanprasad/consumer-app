@@ -16,7 +16,6 @@ import { Blog } from 'src/app/modal/blog';
 export class BlogsService {
   constructor(private http: HttpClient) {}
   public getBlogDetail(blogid: any): Observable<Blog> {
-    debugger;
     const url = environment.apiUrl + 'Blog/GetBlogDetail';
     let queryParams = new HttpParams();
     queryParams = queryParams.append('blogid', blogid);
