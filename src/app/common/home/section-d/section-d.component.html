@@ -1,0 +1,8 @@
+<div class="text-center">
+  <span style="text-align: center; font-size: 32px">Trending Recipe</span>
+</div>
+<div class="row" style="margin-top: 30px;">
+  <div class="col-md-3" *ngFor="let list of recipeList">
+    <app-recipe-card [recipe]="list"></app-recipe-card>
+  </div>
+</div>

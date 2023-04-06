@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="card text-center" style="border: 0px !important">
+    <div class="card-body">
+      <img
+        src="assets/img/default.jpg"
+        class="card-img-top"
+        style="height: 120px; width: 120px; border-radius: 50%"
+        alt="..."
+      />
+      <h5 class="card-title" style="margin-top: 10px">
+        Special title treatment
+      </h5>
+      <p class="card-text"><span>Follower Count</span></p>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 30px">
+  <div class="col" *ngFor="let list of listofProducts">
+    <div class="card">
+      <img
+        src="assets/img/productimg.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ list.name }}</h5>
+        <p class="card-text text-break">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <p class="card-text">{{ list.weight }} grams</p>
+        <div style="display: block">
+          <span style="font-size: 26px">{{ list.price }} Rs</span>
+        </div>
+      </div>
+
+      <div class="card-footer" style="background-color: white !important">
+        <a href="#" class="btn btn-warning" style="width: 100%">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>

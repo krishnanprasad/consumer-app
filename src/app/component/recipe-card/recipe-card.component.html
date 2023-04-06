@@ -1,0 +1,54 @@
+<div class="col  h-100">
+  <div class="card hover-shadow h-100">
+    <img
+      src="assets/img/recipe/{{ recipe.recipeimage }}"
+      class="card-img-top"
+      style="max-height: 181px; min-height: 180px"
+      alt="..."
+    />
+    <div
+      class="card-body text-center"
+      style="padding-left: 0px; padding-right: 0px"
+    >
+      <span
+        style="font-size: 18px; display: block; margin-bottom: 0px"
+        class="card-title"
+        (click)="gotorecipepage(recipe.recipeid)"
+      >
+        {{ recipe.recipename }}
+        <img
+          src="assets/img/icons/{{ recipe.recipetypeimgsrc }}"
+          class="card-img-top"
+          style="max-height: 18px; max-width: 18px"
+          alt="..."
+        />
+      </span>
+      <span
+        class="card-text text-break"
+        style="font-size: 14px; color: rgb(80, 80, 80); margin-top: -10px"
+      >
+        {{ recipe.recipetime }} mins | {{ recipe.recipecuisine }}
+      </span>
+    </div>
+    <div class="card-body" style="padding-top: 0px">
+      <div class="container2">
+        <div class="infimg" (click)="gotochefpage(recipe.chefid)">
+          <img
+            src="assets/img/chef/{{ recipe.chefimgurl }}"
+            alt=""
+            class="img-responsive"
+            style="width: 40px; height: 40px; border-radius: 50%"
+          />
+        </div>
+        <div class="inftext">
+          <span style="display: block; font-size: 14px">{{
+            recipe.chefname
+          }}</span>
+          <span style="display: block; font-size: 12px"
+            >{{ recipe.totalfollowers }} followers</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

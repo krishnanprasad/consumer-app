@@ -1,0 +1,58 @@
+<div style="margin-top: 90px">
+  <p>blogs works!</p>
+  <div class="container">
+    <div class="row">
+      <div class="wrapper">
+        <div class="search-input">
+          <input
+            type="text"
+            placeholder="Search Blog"
+            [(ngModel)]="TBBlogSearchText"
+          />
+          <div class="autocom-box">
+            <!-- <li
+                *ngFor="
+                  let item of ingredientSearchList
+                    | autocompleteFilterPipe
+                      : 'ingredientName'
+                      : searchingredient
+                "
+              > -->
+            <!-- <li *ngFor="let item of ingredientSearchList">
+              {{ item.ingredientName }}
+              <span
+                (click)="addingredientintosearch(item.ingredientName)"
+                style="
+                  background-color: grey;
+                  border-radius: 10px;
+                  padding: 5px 10px;
+                  color: white;
+                "
+                >add +
+              </span>
+            </li> -->
+          </div>
+          <div class="icon">
+            <i class="bi bi-search"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let blog of blogList">
+        <div class="card" (click)="gottoblog(blog.blogid)">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ blog.blogtitle }}</h5>
+            <p class="card-text">
+              {{ blog.blogtitle }}
+            </p>
+            <p class="card-text">
+              <small class="text-muted">{{ blog.author }}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

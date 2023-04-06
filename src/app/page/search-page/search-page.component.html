@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="col-lg-3"
+      style="background-color: #fbfbfb; padding: 20px 5px 5px 10px"
+    >
+      <div style="margin-bottom: 30px">
+        <h5>Filters</h5>
+      </div>
+      <div
+        *ngFor="let list of categoryitem; let i = index"
+        style="margin-bottom: 25px"
+      >
+        <div style="margin-bottom: 10px">
+          <span style="margin-bottom: 15px; font-weight: 500">{{
+            list.groupname
+          }}</span>
+        </div>
+        <div *ngFor="let items of list.items; let i = index">
+          <input type="checkbox" [(ngModel)]="items.checked" />
+          <label style="margin-left: 10px">{{ items.name }}</label>
+        </div>
+      </div>
+      <!-- Selected: {{ categoryitem | json }}  -->
+
+      <!-- Length: {{ lengthofingredientSearchList }} -->
+      <div>
+        <span
+          *ngFor="let item of ingredientFilterArray"
+          style="
+            background-color: grey;
+            border-radius: 10px;
+            padding: 5px 10px;
+            color: white;
+          "
+        >
+          <span (click)="removingredientintosearch(item)">(-) </span>{{ item }}
+        </span>
+      </div>
+      <div class="row">
+        <div class="wrapper">
+          <div class="search-input">
+            <input
+              type="text"
+              placeholder="Search Ingredient"
+              (keyup)="oningredientkeypress($event)"
+              [(ngModel)]="TBsearchingredient"
+            />
+            <div
+              class="autocom-box"
+              [style.display]="
+                lengthofingredientSearchList > 0 ? 'block' : 'none'
+              "
+            >
+              <!-- <li
+                *ngFor="
+                  let item of ingredientSearchList
+                    | autocompleteFilterPipe
+                      : 'ingredientName'
+                      : searchingredient
+                "
+              > -->
+              <li *ngFor="let item of ingredientSearchList">
+                {{ item.ingredientName }}
+                <span
+                  (click)="addingredientintosearch(item.ingredientName)"
+                  style="
+                    background-color: grey;
+                    border-radius: 10px;
+                    padding: 5px 10px;
+                    color: white;
+                  "
+                  >add +
+                </span>
+              </li>
+            </div>
+            <div class="icon">
+              <i class="bi bi-search"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="wrapper">
+          <div class="search-input">
+            <input
+              type="text"
+              placeholder="Search Recipe"
+              (keyup)="onkeypress($event)"
+              [(ngModel)]="searchtext"
+            />
+            <div
+              class="autocom-box"
+              [style.display]="lengthofrecipeSearchList > 0 ? 'block' : 'none'"
+            >
+              <li
+                *ngFor="
+                  let item of recipeSearchList
+                    | autocompleteFilterPipe : 'recipename' : searchtext
+                "
+              >
+                {{ item.recipename }}
+              </li>
+            </div>
+            <div class="icon">
+              <i class="bi bi-search"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let list of recipeList">
+          <app-recipe-card [recipe]="list"></app-recipe-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

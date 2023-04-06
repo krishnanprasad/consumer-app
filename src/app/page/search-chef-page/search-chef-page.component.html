@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="col-lg-3"
+      style="background-color: #fbfbfb; padding: 20px 5px 5px 10px"
+    >
+      <div style="margin-bottom: 30px">
+        <h5>Filters</h5>
+      </div>
+      <div
+        *ngFor="let list of categoryitem; let i = index"
+        style="margin-bottom: 25px"
+      >
+        <div style="margin-bottom: 10px">
+          <span style="margin-bottom: 15px; font-weight: 500">{{
+            list.groupname
+          }}</span>
+        </div>
+        <div *ngFor="let items of list.items; let i = index">
+          <input type="checkbox" [(ngModel)]="items.checked" />
+          <label style="margin-left: 10px">{{ items.name }}</label>
+        </div>
+      </div>
+      <!-- Selected: {{ categoryitem | json }}
+
+      Length: {{ lengthofchefSearchList }} -->
+    </div>
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="wrapper">
+          <div class="search-input">
+            <input
+              type="text"
+              placeholder="Search Chef"
+              (onChange)="onkeypress($event)"
+              (keyup)="onkeypress($event)"
+              [(ngModel)]="searchchefnametext"
+            />
+            <div
+              class="autocom-box"
+              [style.display]="lengthofchefSearchList > 0 ? 'block' : 'none'"
+            >
+              <li
+                *ngFor="
+                  let item of chefList
+                    | autocompleteFilterPipe : 'chefname' : searchchefnametext
+                "
+              >
+                {{ item.chefname }}
+              </li>
+            </div>
+            <div class="icon">
+              <i class="bi bi-search"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3" *ngFor="let list of chefList">
+          <app-influencer-card [chef]="list"></app-influencer-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

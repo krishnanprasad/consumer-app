@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card-body">
+        <div class="container2">
+          <div class="infimg">
+            <img
+              src="assets/img/chef/{{ recipe?.chefimgurl }}"
+              alt=""
+              class="img-responsive"
+              style="width: 60px; height: 60px; border-radius: 50%"
+            />
+          </div>
+          <div class="inftext">
+            <span
+              style="display: block; font-size: 20px"
+              (click)="gotochefpage(recipe.chefid)"
+            >
+              {{ recipe.chefname }}
+              <input type="button" class="btn btn-warning" value="Follow" />
+            </span>
+            <span style="display: block; font-size: 12px">
+              Follower Count
+            </span>
+          </div>
+        </div>
+        <div
+          class="videosection row flex"
+          style="display: block; padding: 80px 60px 0px 0px"
+        >
+          <iframe
+            width="560"
+            height="475"
+            [src]="sanitizeYoutubeURL | safe : 'resourceUrl'"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="d-flex bd-highlight" style="margin-top: 20px">
+          <div class="p-2 flex-fill bd-highlight" style="max-width: 80%">
+            <h5>
+              {{ recipe.recipename }}
+            </h5>
+          </div>
+          <div class="p-2 flex-fill bd-highlight">
+            <span style="margin-right: 10px">
+              <img
+                src="assets/img/icons/share.svg"
+                alt="share"
+                class="img-responsive"
+                style="width: 18px; height: 18px"
+              />
+            </span>
+            <span style="margin-right: 5px">
+              <img
+                src="assets/img/icons/eye.svg"
+                alt="viewers"
+                class="img-responsive"
+                style="width: 18px; height: 18px"
+            /></span>
+            <span>45.2 k</span>
+          </div>
+        </div>
+        <div class="d-flex p-2 bd-highlight" style="margin-top: 15px">
+          <span style="font-weight: 600">Cooking Time: </span>
+          <span style="margin-left: 5px">{{ recipe.recipetime }}</span>
+          <span style="font-weight: 600; margin-left: 20px">Cooking type:</span>
+          <span style="margin-left: 5px"> {{ recipe.recipecuisine }}</span>
+        </div>
+        <hr class="mt-2 mb-3" />
+        <div class="p-2" style="margin-top: 20px">
+          <div style="margin-bottom: 30px">
+            <h5>Ingredient List</h5>
+          </div>
+          <div class="row row-cols-2">
+            <div class="col" *ngFor="let list of recipe?.recipeingredients">
+              <div class="container2" style="margin-top: 20px">
+                <div class="infimg">
+                  <img
+                    src="assets/img/ingredient/{{ list?.ingredientImage }}"
+                    alt=""
+                    class="img-responsive"
+                    style="width: 50px; height: 50px; border-radius: 50%"
+                  />
+                </div>
+                <div class="inftext">
+                  <span style="display: block; font-size: 16px">{{
+                    list?.ingredientName
+                  }}</span>
+                  <span style="display: block; font-size: 12px">{{
+                    list?.ingredientQuantity
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div>
+        <div
+          *ngFor="let list of recipe?.recipesteps; let i = index"
+          style="margin-bottom: 20px"
+        >
+          <span style="display: block; font-weight: 600">Step {{ i + 1 }}</span>
+          <span style="display: block">{{ list.steps }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-row flex-nowrap p-2" style="margin-top: 30px">
+    <h4>Similar Recipe</h4>
+    <div class="row">
+      <div class="col-lg-3 col-md-4" *ngFor="let list of recipeList">
+        <app-recipe-card [recipe]="list"></app-recipe-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col">
+    <div
+      class="card hover-shadow"
+      style="border: 0"
+      (click)="gotochefpage(chef.chefid)"
+    >
+      <div
+        style="
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 10px;
+        "
+      >
+        <img
+          src="assets/img/chef/{{chef.chefimgurl}}"
+          style="width: 140px; height: 140px; border-radius: 50%"
+          class="card-img-top"
+          alt="..."
+        />
+      </div>
+      <div class="card-body text-center" style="padding-bottom: 5px !important">
+        <span class="card-text" style="display: block">{{
+          chef.chefname
+        }}</span>
+        <span
+          class="card-text"
+          style="
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            margin-top: 5px;
+          "
+        >
+          {{ chef.totalrecipes }}
+          <img
+            src="assets/img/icons/recipeicon.png"
+            style="width: 14px; height: 14px"
+            class="card-img-top"
+            alt="total recipe" />
+          | {{ chef.totalfollowers }}
+          <img
+            src="assets/img/icons/followericon.png"
+            style="width: 14px; height: 14px"
+            class="card-img-top"
+            alt="follower count"
+        /></span>
+
+        <p style="margin-top: 5px">
+          <a href="#" class="btn btn-follow">Follow</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
