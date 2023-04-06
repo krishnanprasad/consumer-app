@@ -19,7 +19,6 @@ export class BlogdetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    debugger;
     this.blogid = this.route.snapshot.paramMap.get('blogid');
     this.getBlog();
   }

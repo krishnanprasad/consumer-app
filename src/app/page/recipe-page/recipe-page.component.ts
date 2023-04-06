@@ -51,7 +51,6 @@ export class RecipePageComponent implements OnInit {
       //this.userInfo = response;
 
       //return;
-      debugger;
       this.recipe = response;
       this.sanitizeYoutubeURL =
         'https://www.youtube.com/embed/' + this.recipe.recipevideosrc;

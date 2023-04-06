@@ -22,7 +22,6 @@ export class BlogsComponent implements OnInit {
     });
   }
   gottoblog(blogid: any) {
-    debugger;
     this.router.navigate(['blogdetail/' + blogid]);
     // this.router.navigate(['blogdetail'], { queryParams: { blogid: blogid } });
   }
