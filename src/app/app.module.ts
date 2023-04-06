@@ -30,6 +30,8 @@ import { ToasterComponent } from './common/ui/toaster/toaster.component';
 import { FooterSectionComponent } from './common/footer-section/footer-section.component';
 import { SearchChefPageComponent } from './page/search-chef-page/search-chef-page.component';
 import { SafePipeModule } from 'safe-pipe';
+import { BlogsComponent } from './page/blogs/blogs.component';
+import { BlogdetailComponent } from './page/blogs/blogdetail/blogdetail.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { SafePipeModule } from 'safe-pipe';
     ToasterComponent,
     FooterSectionComponent,
     SearchChefPageComponent,
+    BlogsComponent,
+    BlogdetailComponent,
   ],
   imports: [
     BrowserModule,

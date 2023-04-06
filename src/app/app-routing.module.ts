@@ -9,6 +9,8 @@ import { ChefPageComponent } from './page/chef-page/chef-page.component';
 import { RecipePageComponent } from './page/recipe-page/recipe-page.component';
 import { SearchChefPageComponent } from './page/search-chef-page/search-chef-page.component';
 import { SearchPageComponent } from './page/search-page/search-page.component';
+import { BlogsComponent } from './page/blogs/blogs.component';
+import { BlogdetailComponent } from './page/blogs/blogdetail/blogdetail.component';
 
 const routes: Routes = [
   {
@@ -42,6 +44,14 @@ const routes: Routes = [
   {
     path: 'searchchef', //recipe card without params
     component: SearchChefPageComponent,
+  },
+  {
+    path: 'blogs', //recipe card without params
+    component: BlogsComponent,
+  },
+  {
+    path: 'blogdetail/:blogid', //recipe card without params
+    component: BlogdetailComponent,
   },
 ];
 
