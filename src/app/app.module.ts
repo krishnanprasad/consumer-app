@@ -32,7 +32,7 @@ import { SearchChefPageComponent } from './page/search-chef-page/search-chef-pag
 import { SafePipeModule } from 'safe-pipe';
 import { BlogsComponent } from './page/blogs/blogs.component';
 import { BlogdetailComponent } from './page/blogs/blogdetail/blogdetail.component';
-
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +68,8 @@ import { BlogdetailComponent } from './page/blogs/blogdetail/blogdetail.componen
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SafePipeModule
+    SafePipeModule,
+    ShareButtonsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
