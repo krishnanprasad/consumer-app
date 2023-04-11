@@ -4,18 +4,18 @@
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-4 mb-md-0 mb-4">
-            <h2 class="footer-heading">Cuisnes</h2>
+            <h2 class="footer-heading color-2">Cuisnes</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-1 d-block">Indian</a></li>
               <li><a href="#" class="py-1 d-block">Italian </a></li>
               <li><a href="#" class="py-1 d-block">Chinese </a></li>
               <li><a href="#" class="py-1 d-block">Mexican </a></li>
-              <li><a href="#" class="py-1 d-block">Japanese </a></li>
+              <!-- <li><a href="#" class="py-1 d-block">Japanese </a></li>
               <li><a href="#" class="py-1 d-block">French </a></li>
               <li><a href="#" class="py-1 d-block">Thai </a></li>
               <li><a href="#" class="py-1 d-block">Greek </a></li>
               <li><a href="#" class="py-1 d-block">Spanish </a></li>
-              <li><a href="#" class="py-1 d-block">Middle Eastern    </a></li>
+              <li><a href="#" class="py-1 d-block">Middle Eastern </a></li> -->
             </ul>
           </div>
           <!-- <div class="col-md-4 mb-md-0 mb-4">
@@ -31,37 +31,12 @@
             </ul>
           </div> -->
           <div class="col-md-6 mb-md-0 mb-4">
-            <h2 class="footer-heading">Blogs</h2>
+            <h2 class="color-2 footer-heading">Blogs</h2>
             <ul class="list-unstyled">
-              <li>
-                <a href="#" class="py-1 d-block"
-                  >10 Easy and Healthy Recipes for Busy Weeknights</a
-                >
-              </li>
-              <li>
-                <a href="#" class="py-1 d-block"
-                  >Exploring the World of Vegetarian Cooking: A Beginner's
-                  Guide</a
-                >
-              </li>
-              <li>
-                <a href="#" class="py-1 d-block"
-                  >5 Creative Ways to Use Leftover Ingredients in Your
-                  Recipes</a
-                >
-              </li>
-              <li>
-                <a href="#" class="py-1 d-block"
-                  >How to Meal Prep Like a Pro: Tips and Tricks for Planning
-                  Ahead</a
-                >
-              </li>
-              <li><a href="#" class="py-1 d-block">Sweatshirts</a></li>
-              <li>
-                <a href="#" class="py-1 d-block"
-                  >A Culinary Journey through Regional Cuisine: Exploring the
-                  Flavors of India</a
-                >
+              <li *ngFor="let list of blogList">
+                <a href="/blogdetail/{{ list.blogid }}" class="py-1 d-block">{{
+                  list.blogtitle
+                }}</a>
               </li>
             </ul>
           </div>
@@ -70,7 +45,7 @@
       <div class="col-md-6">
         <div class="row justify-content-end">
           <div class="col-md-12 col-lg-11 mb-md-0 mb-4">
-            <h2 class="footer-heading">Follow Us</h2>
+            <h2 class="color-2 footer-heading">Follow Us</h2>
             <ul class="ftco-footer-social p-0">
               <li class="ftco-animate">
                 <a
@@ -113,7 +88,7 @@
                 ></a>
               </li>
             </ul>
-            <h2 class="footer-heading mt-5">Subscribe Us</h2>
+            <h2 class="footer-heading mt-5 color-2">Subscribe Us</h2>
             <form action="#" class="subscribe-form">
               <div class="form-group d-flex">
                 <input
@@ -141,13 +116,13 @@
           </script>
           2023 All rights reserved | This template is made with
           <i class="ion-ios-heart" aria-hidden="true"></i> by
-          <a href="https://colorlib.com" target="_blank">cookhat.co</a>
+          <a href="#" class="color-2" target="_blank">cookhat.co</a>
         </p>
       </div>
       <div class="col-md-6 col-lg-4 text-md-right">
         <p class="mb-0 list-unstyled">
-          <a class="mr-md-3" href="#">Terms &amp; Conditions</a>
-          <a class="mr-md-3" href="#">Privacy</a>
+          <a class="mr-md-3" class="color-2" href="#">Terms &amp; Conditions</a>
+          <a class="mr-md-3" class="color-2" href="#">Privacy</a>
         </p>
       </div>
     </div>

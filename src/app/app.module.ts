@@ -68,7 +68,7 @@ import { BlogdetailComponent } from './page/blogs/blogdetail/blogdetail.componen
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SafePipeModule
+    SafePipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
