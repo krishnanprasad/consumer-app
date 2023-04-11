@@ -9,7 +9,7 @@
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "build:ci": "ng build --prod",
-    "build-prod":"ng build --configuration=prod -output-hashing=all"
+    "build-prod": "ng build --configuration=prod -output-hashing=all"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +42,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "puppeteer": "^19.8.5",
-    "typescript": "~5.0.4"
+    "typescript": "^4.8.4"
   }
 }
