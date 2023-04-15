@@ -16,7 +16,7 @@ export class SectionDComponent implements OnInit {
     this.getRecipeList();
   }
   getRecipeList() {
-    this._RecipeService.getRecipeList('').subscribe((response: Recipe[]) => {
+    this._RecipeService.getTrendingRecipeList().subscribe((response: Recipe[]) => {
       //this.userInfo = response;
       //return;
       this.recipeList = response;

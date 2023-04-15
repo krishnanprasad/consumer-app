@@ -11,6 +11,7 @@ import { SearchChefPageComponent } from './page/search-chef-page/search-chef-pag
 import { SearchPageComponent } from './page/search-page/search-page.component';
 import { BlogsComponent } from './page/blogs/blogs.component';
 import { BlogdetailComponent } from './page/blogs/blogdetail/blogdetail.component';
+import { ResturantComponent } from './page/resturant/resturant.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'blogdetail/:blogid', //recipe card without params
     component: BlogdetailComponent,
+  },
+  {
+    path: 'resturant', //recipe card without params
+    component: ResturantComponent,
   },
 ];
 

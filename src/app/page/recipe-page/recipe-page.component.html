@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top: 90px">
   <div class="row">
     <div class="col-md-9">
       <div class="card-body">
@@ -76,14 +76,14 @@
           <div class="row row-cols-2">
             <div class="col" *ngFor="let list of recipe?.recipeingredients">
               <div class="container2" style="margin-top: 20px">
-                <div class="infimg">
+                <!-- <div class="infimg">
                   <img
                     src="assets/img/ingredient/{{ list?.ingredientImage }}"
                     alt=""
                     class="img-responsive"
                     style="width: 50px; height: 50px; border-radius: 50%"
                   />
-                </div>
+                </div> -->
                 <div class="inftext">
                   <span style="display: block; font-size: 16px">{{
                     list?.ingredientName
@@ -100,6 +100,7 @@
     </div>
     <div class="col-md-3">
       <div>
+        <h4>List of Steps</h4>
         <div
           *ngFor="let list of recipe?.recipesteps; let i = index"
           style="margin-bottom: 20px"

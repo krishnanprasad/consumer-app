@@ -75,7 +75,7 @@ export class RecipePageComponent implements OnInit {
     });
   }
   gotochefpage(chefid: string) {
-    this.router.navigate(['chef'], { queryParams: { chefid: chefid } });
+    this.router.navigate(['chef/' + chefid]);    
   }
   getSanitizedURL() {
     return this.sanitizer.bypassSecurityTrustUrl(

@@ -34,7 +34,7 @@
             <h2 class="color-2 footer-heading">Blogs</h2>
             <ul class="list-unstyled">
               <li *ngFor="let list of blogList">
-                <a href="/blogdetail/{{ list.blogid }}" class="py-1 d-block">{{
+                <a (click)="gottoblog(list.blogid)" class="py-1 d-block">{{
                   list.blogtitle
                 }}</a>
               </li>
@@ -49,43 +49,55 @@
             <ul class="ftco-footer-social p-0">
               <li class="ftco-animate">
                 <a
-                  href="#"
+                  href="https://twitter.com/DavarasTea24120"
                   data-toggle="tooltip"
                   data-placement="top"
                   title=""
                   data-original-title="Twitter"
-                  ><span class="ion-logo-twitter"></span
-                ></a>
+                  ><img
+                    src="assets/img/icons/twitter.svg"
+                    alt="share"
+                    class="img-responsive positioncenter"
+                /></a>
               </li>
               <li class="ftco-animate">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/davarasapp"
                   data-toggle="tooltip"
                   data-placement="top"
                   title=""
                   data-original-title="Facebook"
-                  ><span class="ion-logo-facebook"></span
-                ></a>
+                  ><img
+                    src="assets/img/icons/facebook.svg"
+                    alt="share"
+                    class="img-responsive positioncenter"
+                /></a>
               </li>
               <li class="ftco-animate">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/davarasapp"
                   data-toggle="tooltip"
                   data-placement="top"
-                  title=""
+                  title="Davaras Instagram App"
                   data-original-title="Instagram"
-                  ><span class="ion-logo-instagram"></span
-                ></a>
+                  ><img
+                    src="assets/img/icons/instagram.svg"
+                    alt="share"
+                    class="img-responsive positioncenter"
+                /></a>
               </li>
               <li class="ftco-animate">
                 <a
-                  href="#"
+                  href="https://in.pinterest.com/davarasapp"
                   data-toggle="tooltip"
                   data-placement="top"
                   title=""
-                  data-original-title="Linkedin"
-                  ><span class="ion-logo-linkedin"></span
-                ></a>
+                  data-original-title="Pinterest"
+                  ><img
+                    src="assets/img/icons/pinterest.svg"
+                    alt="share"
+                    class="img-responsive positioncenter"
+                /></a>
               </li>
             </ul>
             <h2 class="footer-heading mt-5 color-2">Subscribe Us</h2>
@@ -114,9 +126,7 @@
           <script>
             document.write(new Date().getFullYear());
           </script>
-          2023 All rights reserved | This template is made with
-          <i class="ion-ios-heart" aria-hidden="true"></i> by
-          <a href="#" class="color-2" target="_blank">cookhat.co</a>
+          2023 All rights reserved
         </p>
       </div>
       <div class="col-md-6 col-lg-4 text-md-right">

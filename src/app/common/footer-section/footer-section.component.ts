@@ -24,4 +24,5 @@ export class FooterSectionComponent implements OnInit {
     this.router.navigate(['blogdetail/' + blogid]);
     // this.router.navigate(['blogdetail'], { queryParams: { blogid: blogid } });
   }
+  
 }

@@ -35,6 +35,12 @@ export class RecipeServiceService {
     queryParams = queryParams.append('chef_id', chefid);
     return this.http.get<Recipe[]>(url, { params: queryParams });
   }
+  public getTrendingRecipeList(): Observable<any> {
+    
+    const url = environment.apiUrl + 'Recipe/GetTrendingRecipeList';
+    
+    return this.http.get<Recipe[]>(url);
+  }
   public getRecipeSearchList(searchrecipe: any): Observable<any> {
     var header = new HttpHeaders().set('Content-type', 'application/json');
     const url = environment.apiUrl + 'Recipe/GetSearchRecipeList';
