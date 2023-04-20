@@ -11,7 +11,8 @@
     contain;
 }
 .nav-span {
-  color: whitesmoke;
+  color: coral;
+  /* color: whitesmoke; */
   padding-left: 5px;
   padding-right: 10px;
 }
@@ -25,16 +26,39 @@
   color: #ff7f50;
 }
 .nav-item:hover .colored {
-  background-color: #ff7f50; /* defines the background color of the image */
+  background-color: coral; /* defines the background color of the image */
 }
 .nav-item {
   margin-left: 10px;
 }
 
 .companyname {
-  color: white !important;
+  color: coral ;
+  font-size: 32px;
+  padding-left: 20px;
 }
 .ralative {
   top: 8px;
   position: relative;
+}
+
+.dav-nav-col {
+  background-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .dav-nav-col {
+    background-color: coral !important;
+    z-index: 5;
+  }
+  .nav-span {
+    color: white;
+    /* color: whitesmoke; */
+    padding-left: 5px;
+    padding-right: 10px;
+  }
+  .companyname {
+    color: white;
+    padding-right: 5px;
+  }
 }

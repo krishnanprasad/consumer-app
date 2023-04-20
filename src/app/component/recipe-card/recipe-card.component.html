@@ -1,4 +1,4 @@
-<div class="col  h-100">
+<div class="col h-100">
   <div class="card hover-shadow h-100">
     <img
       src="assets/img/recipe/{{ recipe.recipeimage }}"
@@ -12,10 +12,12 @@
     >
       <span
         style="font-size: 18px; display: block; margin-bottom: 0px"
-        class="card-title"
+        class="card-title wraps-dots-recipename"
         (click)="gotorecipepage(recipe.recipeid)"
+        data-toggle="tooltip" data-placement="top" title="{{ recipe.recipename }}"
       >
         {{ recipe.recipename }}
+        
         <img
           src="assets/img/icons/{{ recipe.recipetypeimgsrc }}"
           class="card-img-top"
@@ -41,11 +43,11 @@
           />
         </div>
         <div class="inftext">
-          <span style="display: block; font-size: 14px">{{
+          <span class="wraps-dots-name" >{{
             recipe.chefname
           }}</span>
           <span style="display: block; font-size: 12px"
-            >{{ recipe.totalfollowers }} followers</span
+            >{{ recipe.totalrecipes }} recipes</span
           >
         </div>
       </div>

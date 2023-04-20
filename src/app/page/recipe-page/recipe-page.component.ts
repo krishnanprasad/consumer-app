@@ -24,6 +24,7 @@ export class RecipePageComponent implements OnInit {
     type: 0,
     recipevideosrc: '',
     chefimgurl: 'ks',
+    totalrecipes: 0
   };
   recipeid: any;
   sanitizeYoutubeURL: any;
@@ -33,7 +34,7 @@ export class RecipePageComponent implements OnInit {
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) {}
-  recipeList: any;
+  recipeSimilarList: any;
   ngOnInit() {
     this.recipeid = this.route.snapshot.paramMap.get('recipeid');
     if (this.recipeid != null && this.recipeid != '') {
@@ -70,8 +71,8 @@ export class RecipePageComponent implements OnInit {
     });
   }
   getSimilarRecipeList() {
-    this._RecipeService.getRecipeList('').subscribe((response: Recipe[]) => {
-      this.recipeList = response;
+    this._RecipeService.getSimilarRecipeList().subscribe((response: Recipe[]) => {
+      this.recipeSimilarList = response;
     });
   }
   gotochefpage(chefid: string) {

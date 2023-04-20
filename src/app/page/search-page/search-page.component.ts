@@ -50,6 +50,7 @@ export class SearchPageComponent implements OnInit {
       ],
     },
   ];
+  showFilterMobile: any;
   combinedRecipeFilter: any;
   searchtext = '';
   listofrecipe = ['r1', 'r1', 'r1'];
@@ -60,6 +61,8 @@ export class SearchPageComponent implements OnInit {
   lengthofingredientSearchList: number = 0;
   lengthofrecipeSearchList: number = 0;
   ingredientFilterArray: string[] = [];
+  cuisinelist: string[] = [];
+  cusinestype: string[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private _RecipeService: RecipeServiceService,
@@ -68,6 +71,23 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit() {
     this.getSimilarRecipeList();
+    this.getCuisineList();
+  }
+  getCuisineList() {
+    this._RecipeService.getCuisineList().subscribe((response: string[]) => {
+      let firstChar: any;
+      // TO REMOVE FIRST CHARECTER IF THERE IS SPACE
+      response.forEach((element) => {
+        firstChar = element;
+
+        if (firstChar[0] === ' ') {
+          firstChar = firstChar.trimLeft();
+        }
+        if (!this.cuisinelist.includes(firstChar)) {
+          this.cuisinelist.push(firstChar);
+        }
+      });
+    });
   }
   onkeypress(e: any) {
     this.getRecipeList();
@@ -77,6 +97,7 @@ export class SearchPageComponent implements OnInit {
       category: this.categoryitem,
       text: this.searchtext,
       ingredients: this.ingredientFilterArray,
+      cuisinetype: this.cusinestype,
     };
 
     this._RecipeService
@@ -122,6 +143,15 @@ export class SearchPageComponent implements OnInit {
         this.ingredientFilterArray.splice(index, 1);
       }
     });
+    this.getRecipeList();
+  }
+
+  onChange(data: string, isChecked: any) {
+    if (isChecked.checked) {
+      this.cusinestype.push(data);
+    } else {
+      this.cusinestype.splice(this.cusinestype.indexOf(data), 1);
+    }
     this.getRecipeList();
   }
 }

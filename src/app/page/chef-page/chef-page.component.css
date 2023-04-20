@@ -1,6 +1,33 @@
 .active_tab {
-  border-bottom: 3px solid red;
   padding-bottom: 5px;
-  background-color: rgb(250, 250, 250);
-  padding: 5px;
+  background-color: coral;
+  font-size: 18px;
+  color: white;
+  border-radius: 18px;
+  padding: 10px 30px;
+}
+.navchef {
+  padding-bottom: 5px;
+  background-color: white;
+  border: 1px solid coral;
+  font-size: 18px;
+  color: coral;
+  border-radius: 18px;
+  padding: 10px 30px;
+}
+.icons_chef {
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+}
+.icons_chef .coral {
+  color: coral;
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+    brightness(118%) contrast(119%);
+}
+.active_icons_chef {
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+  color: white;
 }

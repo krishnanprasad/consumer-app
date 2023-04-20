@@ -1,11 +1,11 @@
-<div class="container" style="margin-top: 90px">
+<div class="container" style="margin-top: 70px">
   <div class="row">
     <div class="col-md-9">
       <div class="card-body">
         <div class="container2">
           <div class="infimg">
             <img
-              src="assets/img/chef/{{ recipe?.chefimgurl }}"
+              src="assets/img/chef/{{ recipe.chefimgurl }}"
               alt=""
               class="img-responsive"
               style="width: 60px; height: 60px; border-radius: 50%"
@@ -17,17 +17,14 @@
               (click)="gotochefpage(recipe.chefid)"
             >
               {{ recipe.chefname }}
-              <input type="button" class="btn btn-warning" value="Follow" />
+              <!-- <input type="button" class="btn btn-warning" value="Follow" /> -->
             </span>
             <span style="display: block; font-size: 12px">
-              Follower Count
+              {{ recipe.totalrecipes }} recipes
             </span>
           </div>
         </div>
-        <div
-          class="videosection row flex"
-          style="display: block; padding: 80px 60px 0px 0px"
-        >
+        <div class="videosection row flex video_responsive" style="">
           <iframe
             width="560"
             height="475"
@@ -36,42 +33,42 @@
             allowfullscreen
           ></iframe>
         </div>
-        <div class="d-flex bd-highlight" style="margin-top: 20px">
-          <div class="p-2 flex-fill bd-highlight" style="max-width: 80%">
+        <div class="row" style="margin-top: 20px">
+          <div class="bd-highlight col-sm-12 col-lg-8">
             <h5>
               {{ recipe.recipename }}
             </h5>
           </div>
-          <div class="p-2 flex-fill bd-highlight" style="text-align: right">
+          <div class="col-sm-12 col-lg-4 titleicons_responsive">
             <span style="margin-right: 20px">
-              <img
-                src="assets/img/icons/share.svg"
-                alt="share"
-                class="img-responsive"
-                style="width: 18px; height: 18px"
-              />
+              <i class="bi bi-share gray icon_responsive"></i>
+              Share
             </span>
             <span style="margin-right: 20px">
-              <img
-                src="assets/img/icons/eye.svg"
-                alt="viewers"
-                class="img-responsive"
-                style="width: 18px; height: 18px"
-            /></span>
-            <span>45.2 k</span>
+              <i class="bi bi-hand-thumbs-up gray icon_responsive"></i>
+              Like
+            </span>
+            <span style="margin-right: 10px">
+              <i class="bi bi-emoji-heart-eyes gray icon_responsive"></i
+            ></span>
+            <span class="gray">45.2 k</span>
             <!-- <share-buttons theme="modern-light" show="11"></share-buttons> -->
           </div>
         </div>
-        <div class="d-flex p-2 bd-highlight" style="margin-top: 15px">
-          <span style="font-weight: 600">Cooking Time: </span>
-          <span style="margin-left: 5px">{{ recipe.recipetime }}</span>
-          <span style="font-weight: 600; margin-left: 20px">Cooking type:</span>
-          <span style="margin-left: 5px"> {{ recipe.recipecuisine }}</span>
+        <div class="d-flex bd-highlight" style="margin-top: 15px">
+          <span class="gray">Cooking Time: </span>
+          <span class="gray" style="margin-left: 5px">{{
+            recipe.recipetime
+          }}</span>
+          <span class="gray" style="margin-left: 20px">Cooking type:</span>
+          <span class="gray" style="margin-left: 5px">
+            {{ recipe.recipecuisine }}</span
+          >
         </div>
-        <hr class="mt-2 mb-3" />
-        <div class="p-2" style="margin-top: 20px">
+        <hr class="mt-2" />
+        <div style="margin-top: 20px">
           <div style="margin-bottom: 30px">
-            <h5>Ingredient List</h5>
+            <h5 class="dimgray">Ingredient List</h5>
           </div>
           <div class="row row-cols-2">
             <div class="col" *ngFor="let list of recipe?.recipeingredients">
@@ -98,14 +95,14 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 listofsteps_responsive">
       <div>
-        <h4>List of Steps</h4>
+        <h4 class="dimgray">List of Steps</h4>
         <div
           *ngFor="let list of recipe?.recipesteps; let i = index"
-          style="margin-bottom: 20px"
+          style="margin-bottom: 30px"
         >
-          <span style="display: block; font-weight: 600">Step {{ i + 1 }}</span>
+          <span style="display: block" class="gray">Step {{ i + 1 }}</span>
           <span style="display: block">{{ list.steps }}</span>
         </div>
       </div>
@@ -114,7 +111,7 @@
   <div class="flex-row flex-nowrap p-2" style="margin-top: 30px">
     <h4>Similar Recipe</h4>
     <div class="row">
-      <div class="col-lg-3 col-md-4" *ngFor="let list of recipeList">
+      <div class="col-lg-3 col-md-4" *ngFor="let list of recipeSimilarList">
         <app-recipe-card [recipe]="list"></app-recipe-card>
       </div>
     </div>

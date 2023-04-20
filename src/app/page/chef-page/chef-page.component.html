@@ -1,7 +1,7 @@
 <div class="container">
   <div class="d-flex justify-content-center" style="margin-top: 120px">
     <img
-      src="assets/img//chef/{{ chefDetail?.chefimgurl }}"
+      src="assets/img//chef/{{ chefDetail.chefimgurl }}"
       style="border-radius: 50%; height: 180px; width: 180px"
       class="flex-shrink-0 me-3"
       alt="..."
@@ -9,58 +9,124 @@
     <div style="padding-left: 30px; padding-right: 50px">
       <div class="" style="display: block">
         <span class="mt-0" style="font-size: 36px">{{
-          chefDetail?.chefname
+          chefDetail.chefname
         }}</span>
         <a href="#" class="btn btn-warning" style="margin-left: 10px">Follow</a>
       </div>
 
-      <div class="row row-cols-auto" style="margin-top: 20px">
+      <div class="row row-cols-auto" style="margin-top: 10px">
         <div class="col">
-          <div style="display: block">Reciepes</div>
-          <div style="display: block">{{ chefDetail?.totalrecipes }}</div>
+          <div style="display: block">
+            <span style="font-size: 14px">Recipes</span>
+          </div>
+          <div style="display: block">{{ chefDetail.totalrecipes }}</div>
         </div>
-        <div class="col">
+        <!-- <div class="col">
           <div style="display: block">Followers</div>
           <div style="display: block">{{ chefDetail?.totalfollowers }}</div>
-        </div>
-        <div class="col">
+        </div> -->
+        <!-- <div class="col">
           <div style="display: block">Products</div>
           <div style="display: block">{{ chefDetail?.totalproducts }}</div>
-        </div>
+        </div> -->
       </div>
-      <div style="margin-top: 20px">
+      <div style="margin-top: 10px">
         <p>
-          {{ chefDetail?.chefcaption }}
+          {{ chefDetail.chefcaption }}
         </p>
       </div>
       <div style="margin-top: 20px">
         <div>
-          <span style="font-weight: bold"> Cusine: </span
-          >{{ chefDetail?.cheffavouritecuisine }}
+          <span style="font-size: 14px"> Cusine: </span
+          >{{ chefDetail.cheffavouritecuisine }}
         </div>
       </div>
-      <div style="margin-top: 20px">
+      <!-- <div style="margin-top: 20px">
         <div>
           <span style="font-weight: bold"> Location: </span
-          >{{ chefDetail?.cheflocation }}
+          >{{ chefDetail.cheflocation }}
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
-  <hr class="mt-2 mb-3" />
+  <hr
+    class="mt-2 mb-3"
+    style="
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+      color: coral;
+    "
+  />
   <div class="influencersection" style="margin-top: 20px">
     <div class="row justify-content-md-center">
-      <div class="col col-lg-2" (click)="sectionload('recipe')">
-        <span [class.active_tab]="activesection === 'recipe'">Reciepe</span>
+      <div class="col col-lg-3" (click)="sectionload('store')">
+        <span [ngClass]="activesection === 'store' ? 'active_tab' : 'navchef'"
+          ><img
+            src="assets/img/icons/store_chef.svg"
+            style="height: 18px; width: 18px"
+            alt="share"
+            [ngClass]="
+              activesection === 'kitchen'
+                ? 'active_icons_chef'
+                : 'icons_chef coral'
+            "
+          />
+          Store</span
+        >
       </div>
-      <div class="col col-lg-2">
-        <span>Store (Coming Soon)</span>
+      <div class="col col-lg-3" (click)="sectionload('recipe')">
+        <span [ngClass]="activesection === 'recipe' ? 'active_tab' : 'navchef'"
+          ><img
+            style="height: 18px; width: 18px"
+            src="assets/img/icons/recipe_chef.svg"
+            alt="share"
+            [ngClass]="
+              activesection === 'recipe'
+                ? 'active_icons_chef'
+                : 'icons_chef coral'
+            "
+          />Reciepe</span
+        >
       </div>
-      <div class="col col-lg-2">
-        <span>Kitchen (Coming Soon)</span>
+      <div class="col col-lg-3" (click)="sectionload('class')">
+        <span [ngClass]="activesection === 'class' ? 'active_tab' : 'navchef'"
+          ><img
+            style="height: 18px; width: 18px"
+            src="assets/img/icons/class_chef.svg"
+            alt="share"
+            [ngClass]="
+              activesection === 'class'
+                ? 'active_icons_chef'
+                : 'icons_chef coral'
+            "
+          />Class</span
+        >
+      </div>
+      <div class="col col-lg-3" (click)="sectionload('kitchen')">
+        <span [ngClass]="activesection === 'kitchen' ? 'active_tab' : 'navchef'"
+          ><img
+            src="assets/img/icons/kitchen_chef.svg"
+            style="height: 18px; width: 18px"
+            alt="share"
+            class="img-responsive icons_chef"
+            [ngClass]="
+              activesection === 'kitchen'
+                ? 'active_icons_chef'
+                : 'icons_chef coral'
+            "
+          />Kitchen</span
+        >
       </div>
     </div>
   </div>
+  <hr
+    class="mt-2 mb-3"
+    style="
+      margin-top: 20px !important;
+      margin-bottom: 30px !important;
+      color: coral;
+    "
+  />
   <div *ngIf="activesection == 'recipe'">
     <div class="row" style="margin-top: 40px">
       <div class="col-md-3" *ngFor="let list of recipeList">
@@ -68,7 +134,22 @@
       </div>
     </div>
   </div>
-  <div *ngIf="activesection == 'store'">
-    <!-- <app-chef-store-list></app-chef-store-list> -->
+  <div
+    *ngIf="activesection == 'store'"
+    style="text-align: center; margin-top: 50px"
+  >
+    <span style="font-size: 32px">Coming Soon</span>
+  </div>
+  <div
+    *ngIf="activesection == 'class'"
+    style="text-align: center; margin-top: 50px"
+  >
+    <span style="font-size: 32px">Coming Soon</span>
+  </div>
+  <div
+    *ngIf="activesection == 'kitchen'"
+    style="text-align: center; margin-top: 50px"
+  >
+    <span style="font-size: 32px">Coming Soon</span>
   </div>
 </div>

@@ -13,6 +13,7 @@ import { RecipeServiceService } from 'src/services/recipe-service.service';
 export class ChefPageComponent implements OnInit {
   activesection = 'recipe';
   chefid: any;
+  loadingcomplete = false;
   recipeList: any;
   constructor(
     private _ChefService: ChefService,
@@ -21,6 +22,7 @@ export class ChefPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.activesection = 'recipe';
     this.chefid = this.route.snapshot.paramMap.get('chefid');
     if (this.chefid != null && this.chefid != '') {
       this.getChefDetail();
@@ -32,27 +34,14 @@ export class ChefPageComponent implements OnInit {
   sectionload(sec: string) {
     this.activesection = sec;
   }
-  chefDetail: Chef | undefined;
+  chefDetail!: Chef;
 
   getChefDetail() {
     var chefid = this.chefid;
     this._ChefService.getChefDetail(chefid).subscribe((response: Chef) => {
-      //this.userInfo = response;
-      //return;
+      this.loadingcomplete = true;
       this.chefDetail = response;
-      // this.recipe.per_page = response?.per_page;
-      // //this.userInfo.support = response.support;
-      // this.recipe.total = response?.total;
-      // this.recipe.total_pages = response?.total_pages;
-      // this.recipe.data = response?.data?.map((item) => {
-      //   var user = {} as User;
-      //   user.avatar = item?.avatar;
-      //   user.email = item?.email;
-      //   user.first_name = item?.first_name;
-      //   user.last_name = item?.last_name;
-      //   user.id = item?.id;
-      //   return user;
-      // });
+      
     });
   }
   getRecipeListOfChef() {

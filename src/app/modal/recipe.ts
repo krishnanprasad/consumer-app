@@ -15,6 +15,7 @@ export class Recipe {
   public recipeingredients?: Ingredient[];
   public type: number;
   public recipevideosrc: string;
+  public totalrecipes: number;
 
   constructor(
     recipeid: string,
@@ -30,7 +31,8 @@ export class Recipe {
     type: number,
     recipeingredients: Ingredient[],
     recipevideosrc: string,
-    chefimgurl: string
+    chefimgurl: string,
+    totalrecipes: number
   ) {
     this.recipeid = recipeid;
     this.recipename = recipename;
@@ -46,6 +48,7 @@ export class Recipe {
     this.type = type;
     this.recipevideosrc = recipevideosrc;
     this.chefimgurl = chefimgurl;
+    this.totalrecipes = totalrecipes;
   }
 }
 

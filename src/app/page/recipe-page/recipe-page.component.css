@@ -1,16 +1,43 @@
 .infimg {
-    max-width: 25%;
-    max-height: 15%;
-    float: left;
+  max-width: 25%;
+  max-height: 15%;
+  float: left;
+}
+
+.inftext {
+  float: left;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+.container2 {
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+.video_responsive {
+  display: block;
+  padding: 80px 60px 0px 0px;
+}
+.titleicons_responsive {
+  text-align: left;
+}
+.icon_responsive {
+  width: 18px;
+  height: 18px;
+  padding-right: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .video_responsive {
+    padding: 20px 0px 0px 0px;
   }
-  
-  .inftext {
-    float: left;
-    padding-left: 10px;
+  .titleicons_responsive {
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
-  .container2 {
-    align-items: center;
-    justify-content: center;
-    padding-left: 10px;
+  .listofsteps_responsive {
+    margin-top: 20px;
+    margin-top: 40px;
+    padding: 25px;
   }
-  
+}

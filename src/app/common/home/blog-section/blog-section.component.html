@@ -1,0 +1,28 @@
+<div class="text-center">
+  <span
+    style="text-align: center; font-size: 24px; color: grey"
+    class="commonfont"
+    >Blogs</span
+  >
+
+  <div class="row h-100" style="margin-top: 40px;">
+    <div class="col-md-3 " *ngFor="let blog of blogList" style="margin-bottom: 10px;">
+      <div class="card h-100" (click)="gottoblog(blog.blogid)">
+        <img
+          src="assets/img/blogs/{{ blog.blogtitleimage }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ blog.blogtitle }}</h5>
+          <p class="card-text">
+            {{ blog.blogtitle }}
+          </p>
+          <p class="card-text">
+            <small class="text-muted">{{ blog.author }}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

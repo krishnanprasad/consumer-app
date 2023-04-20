@@ -3,10 +3,29 @@
   font-family: "varelaround";
   src: url(./assets/font/VarelaRound-Regular.ttf);
 }
-
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 * {
   font-family: varelaround;
 }
 .hover-shadow:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+.gray {
+  color: gray;
+}
+.dimgray {
+  color: dimgray;
+}
+
+
+
+.titleparagraph {
+  font-size: 18px;
+  text-align: center;
+}
+.title {
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 10px;
+  color: coral;
 }

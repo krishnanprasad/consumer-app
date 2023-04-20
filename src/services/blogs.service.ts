@@ -25,4 +25,8 @@ export class BlogsService {
     const url = environment.apiUrl + 'Blog/GetBlogList';
     return this.http.get<Blog[]>(url);
   }
+  public getTrendingBlogList(): Observable<Blog[]> {
+    const url = environment.apiUrl + 'Blog/GetTrendingBlogList';
+    return this.http.get<Blog[]>(url);
+  }
 }

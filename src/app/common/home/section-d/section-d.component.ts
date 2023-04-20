@@ -9,6 +9,7 @@ import { RecipeServiceService } from 'src/services/recipe-service.service';
 })
 export class SectionDComponent implements OnInit {
   recipeList!: Recipe[];
+  loading: boolean = true;
 
   constructor(private _RecipeService: RecipeServiceService) {}
   listofrecipe = ['r1', 'r1', 'r1'];
@@ -20,6 +21,8 @@ export class SectionDComponent implements OnInit {
       //this.userInfo = response;
       //return;
       this.recipeList = response;
+      
+      this.loading=false;
       // this.recipe.per_page = response?.per_page;
       // //this.userInfo.support = response.support;
       // this.recipe.total = response?.total;

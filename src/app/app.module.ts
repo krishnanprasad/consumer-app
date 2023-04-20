@@ -33,6 +33,7 @@ import { SafePipeModule } from 'safe-pipe';
 import { BlogsComponent } from './page/blogs/blogs.component';
 import { BlogdetailComponent } from './page/blogs/blogdetail/blogdetail.component';
 import { ResturantComponent } from './page/resturant/resturant.component';
+import { BlogSectionComponent } from './common/home/blog-section/blog-section.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ResturantComponent } from './page/resturant/resturant.component';
     BlogsComponent,
     BlogdetailComponent,
     ResturantComponent,
+    BlogSectionComponent,
   ],
   imports: [
     BrowserModule,

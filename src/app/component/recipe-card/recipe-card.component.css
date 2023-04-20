@@ -13,3 +13,21 @@
   justify-content: center;
   padding-left: 10px;
 }
+
+.wraps-dots-name {
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  display: block;
+}
+
+.wraps-dots-recipename{
+  width: 280px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  padding-left: 10px;
+}

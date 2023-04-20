@@ -22,8 +22,8 @@ export class CreateRecipeComponent implements OnInit {
       recipename: ['', Validators.required],
       ingredient: this.fb.array([]),
       steps: this.fb.array([]),
-      duration: [''],
-      cuisinetype: [''],
+      duration: ['', Validators.required],
+      cuisinetype: ['', Validators.required],
       type: 0,
       videourl: ['', Validators.required],
     });

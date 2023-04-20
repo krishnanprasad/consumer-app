@@ -27,7 +27,7 @@ export class RecipeServiceService {
     return this.http.post<any>(url, recipe, { headers: header });
   }
   public getRecipeList(chefid: string): Observable<any> {
-    if ((chefid == '')) {
+    if (chefid == '') {
       chefid = '';
     }
     const url = environment.apiUrl + 'Recipe/GetRecipeList';
@@ -36,10 +36,17 @@ export class RecipeServiceService {
     return this.http.get<Recipe[]>(url, { params: queryParams });
   }
   public getTrendingRecipeList(): Observable<any> {
-    
     const url = environment.apiUrl + 'Recipe/GetTrendingRecipeList';
-    
     return this.http.get<Recipe[]>(url);
+  }
+  public getSimilarRecipeList(): Observable<any> {
+    const url = environment.apiUrl + 'Recipe/GetSimilarRecipeList';
+
+    return this.http.get<Recipe[]>(url);
+  }
+  public getCuisineList(): Observable<any> {
+    const url = environment.apiUrl + 'Recipe/GetCuisineSearchList';
+    return this.http.get<string[]>(url);
   }
   public getRecipeSearchList(searchrecipe: any): Observable<any> {
     var header = new HttpHeaders().set('Content-type', 'application/json');

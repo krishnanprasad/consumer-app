@@ -1,17 +1,22 @@
 <nav
-  class="navbar navbar-expand-sm navbar-light fixed-top"
-  style="background-color: #ff7f50"
+  class="navbar navbar-expand-lg navbar-light dav-nav-col"
+  style="background-color: white"
 >
-  <div class="container-fluid">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    (click)="isCollapsed = !isCollapsed"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a routerLink="/" class="navbar-brand active companyname">Davaras</a>
+  <div class="navbar-collapse" id="navbarNavDropdown" *ngIf="isCollapsed">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a
-          class="nav-link active companyname"
-          style="color: white; font-size: 25px"
-          routerLink="/"
-          >Davaras</a
-        >
-      </li>
       <li class="nav-item">
         <a class="nav-link ralative" routerLink="/search">
           <div style="display: inline-flex">
@@ -36,6 +41,14 @@
           </div>
         </a>
       </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link ralative" routerLink="/createrecipe">
+          <div style="display: inline-flex">
+            <div class="icon colored"></div>
+            <span class="nav-span">Create Recipe</span>
+          </div>
+        </a>
+      </li> -->
       <!-- <li class="nav-item">
         <a class="nav-link ralative" routerLink="/resturant">
           <div style="display: inline-flex">
